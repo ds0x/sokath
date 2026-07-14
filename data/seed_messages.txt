@@ -1,0 +1,5 @@
+The enrollment profile failed to install because the device's serial number was not found in the assigned server's inventory, so the host fell back to manual enrollment and skipped the automated configuration entirely.
+Three of the virtual machines came up healthy but the fourth timed out waiting for its agent to check in, which usually means the shared network bridge dropped its DHCP lease during the burst of simultaneous boots.
+The nightly audit found two dictionary entries whose expansions had drifted apart across nodes, both involving abbreviations for the same subsystem, so the entries were flagged for quorum review before the next session.
+Compression should be skipped for any message containing numeric identifiers or version strings, because those cannot be paraphrased without losing exactness, and exactness is the entire point of transmitting them.
+The repair channel opened twice during the run: once for a genuine semantic divergence and once for a false positive caused by the judge paraphrasing correctly but scoring poorly under surface similarity.

@@ -1,0 +1,21 @@
+# Copy to config.yaml and edit. Model strings are deliberately not defaults
+# in code — check what you have pulled (ollama list) and current cloud model
+# names at https://docs.claude.com/en/api/overview
+local:
+  host: http://localhost:11434
+  model: ""            # e.g. an 8B-class instruct model on 16GB machines
+nodes:
+  - id: alpha
+  - id: bravo
+cloud:                  # phase 1+; leave disabled for phase 0
+  enabled: false
+  repair_model: ""      # stronger tier
+  judge_model: ""       # cheaper tier
+budget:
+  cloud_input_cap: 200000
+  cloud_output_cap: 50000
+  local_token_soft_cap: 5000000
+session:
+  agreement_threshold: 0.55
+corpus:
+  path: data/corpus.db

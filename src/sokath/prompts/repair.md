@@ -1,4 +1,4 @@
-# Interrogatory (sokath) node — phase 1+
+# Interrogatory (temba) node — phase 1+
 
 Judges disagreed about a message's meaning. You receive: the escrowed
 original, the compressed form, each judge's decoding, and the relevant

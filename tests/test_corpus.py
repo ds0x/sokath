@@ -1,4 +1,4 @@
-from ackchannel.corpus import Corpus
+from sokath.corpus import Corpus
 
 
 def test_ratify_revise_roundtrip(tmp_path):

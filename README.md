@@ -25,7 +25,7 @@ Two channels, priced accordingly:
 
 | Channel | Backing | Role |
 |---|---|---|
-| The ackchannel (flow state; high-volume, cheap) | Local models via Ollama (MLX backend on Apple Silicon) | Negotiation, compressed traffic, judging |
+| Tanagra (flow state; high-volume, cheap) | Local models via Ollama (MLX backend on Apple Silicon) | Negotiation, compressed traffic, judging |
 | Interrogatory channel — temba (rare, expensive) | Anthropic API | Repair, cold-reader audits, disagreement adjudication |
 
 Nodes are **contexts, not weights**: one served local model, N conversations with distinct system prompts and corpus views. Budget enforcement is deterministic and lives in the harness (`budget.py`) — token counts are checked *before* send, and a hard cap halts the run.
@@ -64,7 +64,7 @@ Phase 0 scope: two local nodes negotiate over a fixed message set; repair is stu
 - **sokath** *(n.)* — the negotiated language (mass noun); **a sokath** *(count)* — one ratified entry: surface form, expansion, confidence, revision history. From the Tamarian "Sokath, his eyes uncovered": a sokath is understanding, made portable.
 - **shaka** *(n.)* — a disagreement event; measured comprehension failure between judges ("Shaka, when the walls fell"). A shaka opens temba.
 - **temba** *(n.)* — the interrogatory channel ("Temba, his arms wide": the giving channel). Opens on a shaka, offers full fidelity against escrow, closes with a quorum-ratified patch — which is how the corpus earns better sokaths.
-- **ackchannel** *(n.)* — the cheap channel in its flow state: sokaths fly back and forth and the only reply needed is an acknowledgment. When "I get it" is the whole response, the ackchannel is working. A shaka interrupts it; temba restores it. (The project's original name, kept as the name of the happy path.)
+- **tanagra** *(n.)* — the cheap channel in its flow state: the place where everyone knows what happened. Sokaths fly back and forth and the only reply needed is an acknowledgment — "I get it." A shaka knocks the nodes out of tanagra; temba brings them back. (In early drafts this state was called *the ackchannel*, the project's original name; it survives here as history.)
 
 Tamarian is the project's patron language: every utterance is a corpus entry whose expansion lives in shared history — and the episode is, at heart, about a repair protocol failing for lack of escrow. Naming stops at the docs layer: code identifiers and the schema stay deliberately boring, because an audit log that needs a decoder ring defeats the point.
 - **Entry** — a ratified shorthand item: surface form, expansion, confidence, revision history.

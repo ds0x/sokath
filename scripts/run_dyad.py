@@ -8,11 +8,11 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from ackchannel.budget import Budget
-from ackchannel.corpus import Corpus
-from ackchannel.harness import DyadSession
-from ackchannel.metrics import print_report
-from ackchannel.nodes import OllamaNode
+from sokath.budget import Budget
+from sokath.corpus import Corpus
+from sokath.harness import DyadSession
+from sokath.metrics import print_report
+from sokath.nodes import OllamaNode
 
 
 def main() -> None:
@@ -25,7 +25,7 @@ def main() -> None:
     if not cfg["local"]["model"]:
         sys.exit("set local.model in config.yaml (see: ollama list)")
 
-    prompts = res.files("ackchannel") / "prompts"
+    prompts = res.files("sokath") / "prompts"
     negotiator = (prompts / "negotiator.md").read_text()
     judge = (prompts / "judge.md").read_text()
 

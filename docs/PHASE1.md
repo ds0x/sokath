@@ -87,7 +87,7 @@ discovery failures should be loud and boring, not clever.
    are ratified with all voters recorded in provenance.
 3. Payload fans out to the three judges; each decodes independently.
 4. Pairwise semantic agreement is computed across the three decodings and
-   against escrow. Any pair below `disagreement_threshold` opens repair (a shaka opens sokath):
+   against escrow. Any pair below `disagreement_threshold` opens repair (a shaka opens temba):
    the interrogatory node receives escrowed original, payload, all decodings,
    and the implicated entries' revision history; it emits a `<patch>` proposal.
 5. The patch is ratified by quorum like any entry. Repair event, patch, and
@@ -116,5 +116,5 @@ recorded in the repo when chosen — gates are criteria, not calendars.
 
 ## Out of scope for phase 1
 
-Confidence-tiered escrow caching (phase 2), daemonization as `ackchanneld`
+Confidence-tiered escrow caching (phase 2), daemonization as `sokathd`
 (phase 2+), human-interface codebook frontend (separate track), mDNS discovery.

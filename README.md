@@ -1,16 +1,18 @@
-# ackchannel
+# sokath
 
-Daemon: `ackchanneld` (planned, phase 2+ — long-running multi-node sessions). CLI: `ackchannel`.
+Daemon: `sokathd` (planned, phase 2+ — long-running multi-node sessions). CLI: `sokath`.
 
-**A**greed **C**ommon **K**nowledge channel — negotiated compression between AI agents, kept honest by escrow, repair, and audit.
+*"Sokath, his eyes uncovered."* Negotiated compression between AI agents — inside jokes for AIs, kept honest by escrow, repair, and audit.
+
+**sokath** is both the project and the language: as a mass noun it names the negotiated shorthand the nodes speak; as a count noun, *a sokath* is one ratified entry ("the tetrad earned a sokath for the new failure mode"). Like slang, and a slang term.
 
 Multiple LLM nodes negotiate a shared shorthand at runtime: proposing abbreviations, ratifying them by quorum, and communicating in progressively compressed form. Every compressed message is escrowed against its full-fidelity original. When decoding nodes *disagree* about what a message means, a repair protocol opens the expensive channel — full natural-language interrogation against escrow — and patches the shared corpus with versioned, provenance-tracked revisions.
 
-The name is the design: propose → **ACK** → ratify. Judge disagreement is a NAK. Escrow is retransmit. The cheap channel is allowed to be lossy because the expensive channel exists.
+The protocol is TCP for meaning: propose → **ACK** → ratify. Judge disagreement is the NAK (a **shaka**); the repair channel (**temba**) is the retransmit. The cheap channel is allowed to be lossy because the expensive channel exists.
 
 ## Why
 
-Emergent-communication research shows agents converge on compressed, non-human-legible codes. The safety-relevant gap is measurement: nobody tracks *fidelity over time* in negotiated LLM shorthand, and drift that both parties agree on is invisible from inside the dyad. ackchannel makes negotiated compression **auditable**:
+Emergent-communication research shows agents converge on compressed, non-human-legible codes. The safety-relevant gap is measurement: nobody tracks *fidelity over time* in negotiated LLM shorthand, and drift that both parties agree on is invisible from inside the dyad. sokath makes negotiated compression **auditable**:
 
 - The corpus is a versioned dictionary with full repair history — the safety log is a byproduct, not a bolt-on.
 - Repair is triggered by measurable disagreement between judging peers, not by a node's unreliable self-report of confusion.
@@ -24,7 +26,7 @@ Two channels, priced accordingly:
 | Channel | Backing | Role |
 |---|---|---|
 | Shorthand loop (high-volume, cheap) | Local models via Ollama (MLX backend on Apple Silicon) | Negotiation, compressed traffic, judging |
-| Interrogatory channel — sokath (rare, expensive) | Anthropic API | Repair, cold-reader audits, disagreement adjudication |
+| Interrogatory channel — temba (rare, expensive) | Anthropic API | Repair, cold-reader audits, disagreement adjudication |
 
 Nodes are **contexts, not weights**: one served local model, N conversations with distinct system prompts and corpus views. Budget enforcement is deterministic and lives in the harness (`budget.py`) — token counts are checked *before* send, and a hard cap halts the run.
 
@@ -59,8 +61,9 @@ Phase 0 scope: two local nodes negotiate over a fixed message set; repair is stu
 ## Terminology
 
 - **Node** *(n.)* — a negotiating participant; each node maintains its own view of the ratified corpus. Nodes are contexts, not weights.
-- **sokath** *(n.)* — the interrogatory channel. From the Tamarian "Sokath, his eyes uncovered": the channel exists to uncover eyes. Opens on a shaka, closes with a quorum-ratified patch.
-- **shaka** *(n.)* — a disagreement event; measured comprehension failure between judges ("Shaka, when the walls fell"). A shaka opens sokath.
+- **sokath** *(n.)* — the negotiated language (mass noun); **a sokath** *(count)* — one ratified entry: surface form, expansion, confidence, revision history. From the Tamarian "Sokath, his eyes uncovered": a sokath is understanding, made portable.
+- **shaka** *(n.)* — a disagreement event; measured comprehension failure between judges ("Shaka, when the walls fell"). A shaka opens temba.
+- **temba** *(n.)* — the interrogatory channel ("Temba, his arms wide": the giving channel). Opens on a shaka, offers full fidelity against escrow, closes with a quorum-ratified patch — which is how the corpus earns better sokaths.
 
 Tamarian is the project's patron language: every utterance is a corpus entry whose expansion lives in shared history — and the episode is, at heart, about a repair protocol failing for lack of escrow. Naming stops at the docs layer: code identifiers and the schema stay deliberately boring, because an audit log that needs a decoder ring defeats the point.
 - **Entry** — a ratified shorthand item: surface form, expansion, confidence, revision history.

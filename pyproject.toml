@@ -1,5 +1,5 @@
 [project]
-name = "ackchannel"
+name = "sokath"
 version = "0.0.1"
 description = "Negotiated compression between AI agents, kept honest by escrow, repair, and audit"
 requires-python = ">=3.11"
@@ -17,4 +17,4 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 
 [tool.setuptools.package-data]
-ackchannel = ["prompts/*.md"]
+sokath = ["prompts/*.md"]
